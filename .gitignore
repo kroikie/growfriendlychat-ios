@@ -4,4 +4,5 @@ gen/
 Pods/
 xcuserdata/
 *.xcworkspace/
+ModuleCache.noindex/
 GoogleService-Info.plist
