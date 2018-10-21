@@ -85,6 +85,13 @@ class FCViewController: UIViewController, UITableViewDataSource, UITableViewDele
   }
 
   @IBAction func didPressFreshConfig(_ sender: AnyObject) {
+    InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+            print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+            print("Remote instance ID token: \(result.token)")
+        }
+    }
     fetchConfig()
   }
 
