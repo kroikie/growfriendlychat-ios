@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12106.1" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zxq-GO-nHP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zxq-GO-nHP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12074.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Friendly Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLb-ik-2ju">
-                                <rect key="frame" x="99" y="204" width="177" height="36"/>
+                                <rect key="frame" x="102" y="204" width="171.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -106,7 +105,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzG-Ms-LOb">
-                                        <rect key="frame" x="234" y="-6" width="41" height="30"/>
+                                        <rect key="frame" x="233.5" y="-6" width="41" height="30"/>
                                         <state key="normal" title="Crash">
                                             <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -167,14 +166,6 @@
                                     <outlet property="delegate" destination="uMT-A3-F60" id="5FI-zi-SaF"/>
                                 </connections>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9C0-fE-spr" customClass="GADBannerView">
-                                <rect key="frame" x="129" y="622" width="118" height="45"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="VMB-xY-FkQ"/>
-                                    <constraint firstAttribute="width" constant="118" id="ptq-PQ-goH"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wv1-bL-LxQ">
                                 <rect key="frame" x="317" y="567" width="46" height="30"/>
                                 <constraints>
@@ -210,14 +201,11 @@
                             <constraint firstItem="wv1-bL-LxQ" firstAttribute="trailing" secondItem="DHD-HU-kCB" secondAttribute="trailing" id="jLu-32-ERV"/>
                             <constraint firstItem="VRr-Ou-qfp" firstAttribute="leading" secondItem="4Dk-Kp-xdq" secondAttribute="leadingMargin" constant="-20" id="lXP-yU-4e8"/>
                             <constraint firstItem="VRr-Ou-qfp" firstAttribute="top" secondItem="yPS-DS-Klf" secondAttribute="bottom" id="lgZ-Wt-SEn"/>
-                            <constraint firstItem="9C0-fE-spr" firstAttribute="centerX" secondItem="DHD-HU-kCB" secondAttribute="centerX" id="n39-i8-dE7"/>
-                            <constraint firstItem="9C0-fE-spr" firstAttribute="bottom" secondItem="X8X-0F-Bdi" secondAttribute="top" id="sLh-63-72I"/>
                             <constraint firstItem="STK-FK-gn5" firstAttribute="top" secondItem="wv1-bL-LxQ" secondAttribute="top" id="spZ-ka-Cxy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DHD-HU-kCB" secondAttribute="trailing" constant="-4" id="xhU-Sl-tIr"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="banner" destination="9C0-fE-spr" id="NlI-Px-SJT"/>
                         <outlet property="clientTable" destination="DHD-HU-kCB" id="VEb-Fb-vE0"/>
                         <outlet property="sendButton" destination="wv1-bL-LxQ" id="NjU-mG-4FR"/>
                         <outlet property="textField" destination="STK-FK-gn5" id="NHK-Z3-xOt"/>

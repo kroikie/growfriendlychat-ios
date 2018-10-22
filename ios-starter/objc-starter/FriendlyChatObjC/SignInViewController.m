@@ -28,11 +28,31 @@
 @implementation SignInViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  [GIDSignIn sharedInstance].uiDelegate = self;
+    [super viewDidLoad];
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    [[GIDSignIn sharedInstance] signInSilently];
+    self.handle = [[FIRAuth auth]
+                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                       if (user) {
+                           [MeasurementHelper sendLoginEvent];
+                           [self performSegueWithIdentifier:SeguesSignInToFp sender:nil];
+                       }
+                   }];
 }
-
+    
 - (void)dealloc {
+    [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
+}
+    
+- (IBAction)signOut:(UIButton *)sender {
+    FIRAuth *firebaseAuth = [FIRAuth auth];
+    NSError *signOutError;
+    BOOL status = [firebaseAuth signOut:&signOutError];
+    if (!status) {
+        NSLog(@"Error signing out: %@", signOutError);
+        return;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

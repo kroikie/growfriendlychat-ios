@@ -42,16 +42,27 @@
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
-  if (error == nil) {
-  } else {
-    NSLog(@"Error %@", error.localizedDescription);
-  }
+    if (error == nil) {
+        GIDAuthentication *authentication = user.authentication;
+        FIRAuthCredential *credential =
+        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                         accessToken:authentication.accessToken];
+        [[FIRAuth auth] signInWithCredential:credential completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error %@", error.localizedDescription);
+            }
+        }];
+    } else {
+        NSLog(@"Error %@", error.localizedDescription);
+    }
 }
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [GIDSignIn sharedInstance].delegate = self;
-  return YES;
+    [FIRApp configure];
+    [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
+    [GIDSignIn sharedInstance].delegate = self;
+    return YES;
 }
 
 @end
